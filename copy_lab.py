@@ -9,7 +9,6 @@ url = input("SSH link to repository (leave blank if no link): ")
 
 two_digit_week = f"{int(week):02d}"
 
-# cc_work_folder = "/Users/nealejohnston/Desktop/codeclan_work/"
 cc_work_folder = "/Users/needs_replaced/Desktop/codeclan_work/"
 directory_to_copy = os.getcwd()
 directory_name = os.path.basename(directory_to_copy)
