@@ -2,6 +2,7 @@ from distutils.dir_util import copy_tree
 from git import Repo
 import os
 import webbrowser
+import shutil
 
 cc_work_folder = "/Users/needs_replaced/Desktop/codeclan_work/"
 
@@ -47,6 +48,13 @@ def copy_folder(directory_to_copy, copy_to_path):
     copy_tree(directory_to_copy, copy_to_path)
 
 
+def make_readme(directory):
+    for file in os.listdir(directory):
+        if file.endswith(".md"):
+            readme = f"{directory}/readme.md"
+            shutil.copy(file, readme)
+
+
 def init_repo(copy_to_path):
     repo = Repo.init(copy_to_path)
     repo.git.add("--all")
@@ -68,6 +76,11 @@ def check_url(url, repo):
         push_to_github(url, repo)
 
 
+def open_code(path):
+    os.chdir(path)
+    os.system("code .")
+
+
 def main():
     day = get_day()
     week = get_two_digit_week()
@@ -80,9 +93,13 @@ def main():
 
     copy_folder(source, destination)
 
+    make_readme(destination)
+
     repo = init_repo(destination)
 
     check_url(url, repo)
+
+    open_code(destination)
 
 
 if __name__ == "__main__":
