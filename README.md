@@ -12,6 +12,7 @@ It will also initialise a git repository, create an initial commit and, if given
 2. Unzip if you need to.
 3. In a terminal, navigate to where setup.sh directory is.
 4. Enter "chmod +x setup.sh" in the terminal.
+5. Enter "./setup.sh" in the terminal.
 
 ## Usage instructions
 
