@@ -50,14 +50,14 @@ def copy_folder(directory_to_copy, copy_to_path):
 def init_repo(copy_to_path):
     repo = Repo.init(copy_to_path)
     repo.git.add("--all")
-    repo.git.commit("-m", '"Initial commit"', "--no-verify")
+    repo.git.commit("-m", "Initial commit", "--no-verify")
     return repo
 
 
 def push_to_github(url, repo):
 
     origin = repo.create_remote("origin", url)
-    repo.create_head("main")
+    repo.heads.master.rename("main")
     repo.git.push("--set-upstream", "origin", "main")
 
 
