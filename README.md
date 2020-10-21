@@ -21,7 +21,7 @@ There's no error checking on your input, but you can always delete it if you ene
 
 1.  Navigate inside the directory you want to copy to your codeclan_work folder.  If you wanted to copy the folder "homework_lab", you need to be inside it.
 2. Type "copy_lab" at the command prompt
-3. It will ask you for the week, this should be a number between 1 and 16.
-4. It will ask you for a day, this should be wbetween 1 and 5, with 1 being Monday. 5 will create a folder called weekend_homework.
+3. It will ask you for a day, this should be wbetween 1 and 5, with 1 being Monday. 5 will create a folder called weekend_homework.
+4. It will ask you for the week, this should be a number between 1 and 16.
 5. It will ask you for a SSH link to a repository.  This should be copied from GitHub in the form of git@github.com etc.  Just leave it blank if you haven't created one yet.
 6. It should copy the folder.
