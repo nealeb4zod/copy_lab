@@ -12,12 +12,6 @@ def get_day():
     return day
 
 
-def get_url():
-    webbrowser.open("https://github.com/new", new=2)
-    url = input("SSH link to repository (leave blank if no link): ")
-    return url
-
-
 def get_two_digit_week():
     week = input("What week is it? (1 - 16) ")
     two_digit_week = f"{int(week):02d}"
@@ -42,7 +36,12 @@ def get_path_to_copy_to(day, two_digit_week, directory_name):
     else:
         destination_directory = f"{cc_work_folder}week_{two_digit_week}/day_{day}"
     copy_to_path = f"{destination_directory}/{directory_name}"
+
     return copy_to_path
+
+
+def get_repo_name(day, two_digit_week, directory_name):
+    repo_name = f"week_{two_digit_week}_day_{day}_{directory_name}"
 
 
 def copy_folder(directory_to_copy, copy_to_path):
@@ -50,10 +49,10 @@ def copy_folder(directory_to_copy, copy_to_path):
 
 
 def make_readme(directory):
+    os.chdir(directory)
     for file in os.listdir(directory):
         if file.endswith(".md"):
-            readme = f"{directory}/readme.md"
-            shutil.copy(file, readme)
+            os.rename(file, "readme.md")
 
 
 def init_repo(copy_to_path):
@@ -63,18 +62,13 @@ def init_repo(copy_to_path):
     return repo
 
 
-def push_to_github(url, repo):
-
-    origin = repo.create_remote("origin", url)
+def create_gh_repo(copy_to_path):
+    os.chdir(copy_to_path)
+    create_command = f"gh repo create --public -y"
+    os.system(create_command)
+    repo = Repo(copy_to_path)
     repo.heads.master.rename("main")
     repo.git.push("--set-upstream", "origin", "main")
-
-
-def check_url(url, repo):
-    if not url:
-        webbrowser.open("https://github.com/new", new=2)
-    else:
-        push_to_github(url, repo)
 
 
 def open_code(path):
@@ -83,23 +77,17 @@ def open_code(path):
 
 
 def main():
+
     day = get_day()
     week = get_two_digit_week()
-    url = get_url()
-
     directory_name = get_current_directory_name(get_cwd())
-
     source = get_cwd()
     destination = get_path_to_copy_to(day, week, directory_name)
 
     copy_folder(source, destination)
-
     make_readme(destination)
-
-    repo = init_repo(destination)
-
-    check_url(url, repo)
-
+    init_repo(destination)
+    create_gh_repo(destination)
     open_code(destination)
 
 
