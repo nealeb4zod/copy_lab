@@ -2,15 +2,23 @@
 
 This a wee script to copy the codeclan lab from the class notes folder to your codeclan_work folder in the correct week/day format.
 
-It will also initialise a git repository, create an initial commit and, if given a remote repo, push to GitHub.
+  * Copy the current folder to your codeclan_work folder in the correct day/week format
+  * Take any .md file and rename it readme.md
+  * Initialise a git repository
+  * Commit the initial files
+  * Create a repository on GitHub
+  * Link the two repositories
+  * Push the commit to GitHub
+  * Open VS Code in the correct folder
 
 ### I take no responsibilty if it all goes wrong.
 
 ## Pre-requisite:
 
-We need the GitHub cli to be installed before we can create repositories automatically.
-To install this enter "brew install gh" in a terminal.
-Authenticate to your GitHub account using "gh auth login" and follow the prompts.  Select the SSH option as your default protocol.
+We need the GitHub cli to be installed before we can create repositories automatically. To install and set this up follow the following:
+1. Enter "brew install gh" in a terminal.
+2. Authenticate to your GitHub account using "gh auth login" and follow the prompts.
+3. Select the SSH option as your default protocol.
 
 ## Setup instructions:
 
@@ -30,5 +38,4 @@ There's no error checking on your input, but you can always delete it if you ene
 2. Type "copy_lab" at the command prompt
 3. It will ask you for a day, this should be between 1 and 5, with 1 being Monday. 5 will create a folder called weekend_homework.
 4. It will ask you for the week, this should be a number between 1 and 16.
-5. It will ask you for a SSH link to a repository.  This should be copied from GitHub in the form of git@github.com etc.  Just leave it blank if you haven't created one yet.
-6. It should copy the folder, init a repo (with a readme if available), push to GitHub and open code for you.
+5. It will prompt for a repository name. Hit enter to accept the default (the current directory name)
