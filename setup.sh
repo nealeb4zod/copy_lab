@@ -1,4 +1,16 @@
 #!/bin/sh
+gh auth status 2>/dev/null
+
+if [ $? -eq 0 ]; then
+    echo "Logged in to GitHub"
+else
+    echo "Not logged in to GitHub" >&2
+    echo "We need the GitHub cli to be installed before we can create repositories automatically."
+    echo 'To install this enter "brew install gh" in a terminal.'
+    echo 'Authenticate to your GitHub account using "gh auth login" and follow the prompts.  Select the SSH option as your default protocol.'
+    exit 1
+fi
+
 pip3 install gitpython --user
 
 append_to_zshrc() {

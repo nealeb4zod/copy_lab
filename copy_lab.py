@@ -13,6 +13,7 @@ def get_day():
 
 
 def get_url():
+    webbrowser.open("https://github.com/new", new=2)
     url = input("SSH link to repository (leave blank if no link): ")
     return url
 

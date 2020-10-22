@@ -1,10 +1,16 @@
 # Copy_lab
 
-This a wee script to copy the codeclan lab from the class notes folder to your codeclan_work folder in the correct week/day format.  
+This a wee script to copy the codeclan lab from the class notes folder to your codeclan_work folder in the correct week/day format.
 
 It will also initialise a git repository, create an initial commit and, if given a remote repo, push to GitHub.
 
 ### I take no responsibilty if it all goes wrong.
+
+## Pre-requisite:
+
+We need the GitHub cli to be installed before we can create repositories automatically.
+To install this enter "brew install gh" in a terminal.
+Authenticate to your GitHub account using "gh auth login" and follow the prompts.  Select the SSH option as your default protocol.
 
 ## Setup instructions:
 
