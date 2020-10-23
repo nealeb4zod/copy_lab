@@ -32,7 +32,7 @@ We need the GitHub cli to be installed before we can create repositories automat
 
 This assumes that your codeclan_work folder is on your Desktop.
 
-There's no error checking on your input, but you can always delete it if you eneter the wrong day/week etc.
+There's no error checking on your input, but you can always delete it if you enter the wrong day/week etc.
 
 1.  Navigate inside the directory you want to copy to your codeclan_work folder.  If you wanted to copy the folder "homework_lab", you need to be inside it.
 2. Type "copy_lab" at the command prompt
